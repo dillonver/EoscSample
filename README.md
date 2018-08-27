@@ -1,7 +1,5 @@
-# LtsPocket
-
 #### 项目介绍
-LtsPocket
+EoscSample-Andorid
 
 #### 软件架构
 软件架构说明
