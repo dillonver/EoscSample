@@ -1,5 +1,5 @@
 #### 项目介绍
-EoscSample-Andorid
+EoscSample-Andorid 一个小例子 Eosforce 功能实现 创建用户  转账交易
 
 #### 软件架构
 软件架构说明
