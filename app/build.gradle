@@ -1,0 +1,143 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.lts.pocketlts"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            debuggable false
+            // 是否进行混淆
+            minifyEnabled true
+            //去除没有用到的资源文件，要求minifyEnabled为true才生效
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            debuggable true
+            // 是否进行混淆
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml'
+
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation("org.jetbrains.anko:anko:$anko_version") {
+        exclude group: 'com.google.android', module: 'android'
+    }
+    String androidSupportVer = "28.0.0-rc01"
+    implementation "com.android.support:appcompat-v7:$androidSupportVer"
+    implementation "com.android.support:design:$androidSupportVer"
+    implementation "com.android.support:percent:$androidSupportVer"
+    implementation "com.android.support:support-v4:$androidSupportVer"
+    configurations.all {
+        resolutionStrategy.force "com.android.support:support-annotations:$androidSupportVer"
+    }
+
+    //内存泄漏检测
+    String LeakCanaryVer = "1.6.1"
+
+    //工具类大全
+    String UtilCodeVer = "1.19.0"
+
+    //数据解析
+    String GsonVer = "2.8.0"
+
+    //EventBus方便通信
+    String EventBusVer = "3.0.0"
+
+    //Fragment管理框架
+    String FragmentationVer = "1.3.6"
+
+    //方便fragment之间通信
+    String FragmentationEventBusVer = "1.1.0"
+
+    //拍照相册框架
+    String TakephotolibraryVer = "4.1.0"
+
+    //网络请求框架OkGo
+    String OkGoVer = "3.0.4"
+    String OkRxVer = "2.0.2"
+    String OkServerVer = "2.0.5"
+    String ReadyStateSoftwareVer = "1.0.4"
+
+    //Android权限管理
+    String RxPermissionVer = "0.10.2"
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$LeakCanaryVer"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$LeakCanaryVer"
+    implementation "org.devio.takephoto:takephoto_library:$TakephotolibraryVer"
+    implementation "com.blankj:utilcode:$UtilCodeVer"
+    implementation "com.google.code.gson:gson:$GsonVer"
+    implementation "org.greenrobot:eventbus:$EventBusVer"
+    implementation "com.github.tbruyelle:rxpermissions:$RxPermissionVer"
+    implementation "me.yokeyword:fragmentation:$FragmentationVer"
+    implementation "me.yokeyword:fragmentation-swipeback:$FragmentationVer"
+    implementation "me.yokeyword:eventbus-activity-scope:$FragmentationEventBusVer"
+    implementation "com.lzy.net:okgo:$OkGoVer"
+    implementation "com.lzy.net:okrx2:$OkRxVer"
+    implementation "com.lzy.net:okserver:$OkServerVer"
+    implementation "com.readystatesoftware.chuck:library:$ReadyStateSoftwareVer"
+    implementation 'io.github.novacrypto:BIP32:0.0.8'
+    implementation 'com.google.guava:guava:23.0-android'
+    implementation files('lib/commons-lang-2.6.jar')
+}

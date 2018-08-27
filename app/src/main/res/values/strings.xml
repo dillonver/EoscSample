@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyPocket</string>
+    <string name="timeout_error_tip">Sorry,似乎发生了一点意外</string>
+    <string name="double_click_log_out">再点一次退出APP</string>
+
+
+</resources>

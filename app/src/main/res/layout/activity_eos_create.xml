@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lay_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin15"
+                android:gravity="center"
+                android:padding="@dimen/margin10"
+                android:text="公钥"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin18" />
+
+            <TextView
+                android:id="@+id/tv_public_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin15"
+                android:gravity="center"
+                android:longClickable="true"
+                android:padding="@dimen/margin10"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/margin18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin15"
+                android:gravity="center"
+                android:padding="@dimen/margin10"
+                android:text="私钥"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin18" />
+
+            <TextView
+                android:id="@+id/tv_private_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin15"
+                android:gravity="center"
+                android:longClickable="true"
+                android:padding="@dimen/margin10"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/margin18" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/tv_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin15"
+            android:gravity="center"
+            android:hint="输入账号名[a-z 1-5 .]小写开头 "
+            android:maxLength="12"
+            android:digits=".12345qwertyuiopasdfghjklzxcvbnm"
+            android:padding="@dimen/margin10"
+            android:inputType="textVisiblePassword"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin18" />
+
+        <TextView
+            android:id="@+id/tv_create_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin15"
+            android:gravity="center"
+            android:padding="@dimen/margin10"
+            android:text="点击创建账号"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin18" />
+
+
+        <TextView
+            android:id="@+id/tv_go_transfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin15"
+            android:gravity="center"
+            android:padding="@dimen/margin10"
+            android:paddingTop="@dimen/margin100"
+            android:text="点击前往转账"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin18" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
